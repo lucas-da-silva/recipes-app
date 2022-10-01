@@ -7,6 +7,7 @@ import '../styles/RecipesDetails.css';
 import RecipeDetailsCarousel from '../components/RecipeDetailsCarousel';
 import RecipeDetailsShareBtn from '../components/RecipeDetailsShareBtn';
 import RecipeDetailsVideo from '../components/RecipeDetailsVideo';
+import FavoriteBtn from '../components/FavoriteBtn';
 
 const copyLinkShare = (callback, history) => {
   const timeLimit = 2000;
@@ -142,18 +143,27 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
             </button>
           )
         }
-        <RecipeDetailsShareBtn
-          copyLinkShare={ () => copyLinkShare(setLinkCopied, history) }
-        />
-        <button
+        {/*         <button
           type="button"
           data-testid="favorite-btn"
           style={
             { bottom: '0px', zIndex: '11', margin: '20px 20px 40px', padding: '6px' }
           }
-        >
+          >
           Favorite Recipe
-        </button>
+        </button> */}
+        <FavoriteBtn
+          id={ id }
+          category={ recipeDetails.strCategory }
+          name={ recipeDetails[typeKeysObj.name] }
+          alcoholicOrNot={ recipeDetails.strAlcoholic }
+          nationality={ recipeDetails.strArea }
+          image={ recipeDetails[typeKeysObj.img] }
+          type={ siteKey }
+        />
+        <RecipeDetailsShareBtn
+          copyLinkShare={ () => copyLinkShare(setLinkCopied, history) }
+        />
         <RecipeDetailsVideo siteKey={ siteKey } src={ recipeDetails.strYoutube } />
       </div>
     )
