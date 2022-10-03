@@ -1,0 +1,32 @@
+.categories-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.category-btn {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.category-img-container {
+  align-items: center;
+  border: 1.811px solid #fcc436;
+  border-radius: 45.28px;
+  display: flex;
+  height: 45.28px;
+  justify-content: center;
+  margin: 0 5px;
+  width: 45.28px;
+}
+
+.category-btn p {
+  color: #797d86;
+  font-size: 9px;
+  font-weight: 300;
+  height: 5px;
+  line-height: 9px;
+  margin-top: 6px;
+}
