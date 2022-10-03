@@ -37,9 +37,14 @@ function RecipeDetailsCarousel({ recommendation, carouselKey, carouselObjKeys })
 }
 
 RecipeDetailsCarousel.propTypes = {
-  recommendation: PropTypes.shape.isRequired,
+  recommendation: PropTypes.shape({
+    meals: PropTypes.arrayOf(PropTypes.string.isRequired),
+  }).isRequired,
   carouselKey: PropTypes.string.isRequired,
-  carouselObjKeys: PropTypes.shape,
+  carouselObjKeys: PropTypes.shape({
+    img: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }),
 };
 
 RecipeDetailsCarousel.defaultProps = {

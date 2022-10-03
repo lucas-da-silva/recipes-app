@@ -169,7 +169,10 @@ RecipeDetails.propTypes = {
   siteKey: PropTypes.string.isRequired,
   carouselKey: PropTypes.string.isRequired,
   typeKeysObj: PropTypes.shape(PropTypes.string.isRequired).isRequired,
-  carouselObjKeys: PropTypes.shape(PropTypes.string.isRequired).isRequired,
+  carouselObjKeys: PropTypes.shape({
+    img: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default RecipeDetails;
