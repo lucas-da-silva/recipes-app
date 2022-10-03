@@ -7,6 +7,7 @@ import '../styles/RecipesDetails.css';
 import RecipeDetailsCarousel from '../components/RecipeDetailsCarousel';
 import RecipeDetailsShareBtn from '../components/RecipeDetailsShareBtn';
 import RecipeDetailsVideo from '../components/RecipeDetailsVideo';
+import yellowHeartIcon from '../images/yellowHeartIcon.svg';
 
 const copyLinkShare = (callback, history) => {
   const timeLimit = 2000;
@@ -87,28 +88,42 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
           alt="Recipe"
           className="recipe-photo"
         />
-        <div className="header-recipe">
-          <h1
-            data-testid="recipe-title"
-          >
-            { recipeDetails[typeKeysObj.name] }
-          </h1>
+        <div className="category-recipe">
           {
             siteKey === 'drinks'
               ? <h4 data-testid="recipe-category">Alcoholic</h4>
               : <h4 data-testid="recipe-category">{ recipeDetails.strCategory }</h4>
           }
         </div>
-        <ul>
-          { ingredientsValues.map((ingredient, index) => (
-            <li
-              key={ ingredient }
-              data-testid={ `${index}-ingredient-name-and-measure` }
-            >
-              {ingredient}
-            </li>
-          )) }
-        </ul>
+        <RecipeDetailsShareBtn
+          copyLinkShare={ () => copyLinkShare(setLinkCopied, history) }
+        />
+        <button
+          type="button"
+          data-testid="favorite-btn"
+          className="favorite-btn-detail button-icon"
+        >
+          <img src={ yellowHeartIcon } alt="Heart Icon" />
+        </button>
+        <h1
+          data-testid="recipe-title"
+          className="recipe-title"
+        >
+          { recipeDetails[typeKeysObj.name] }
+        </h1>
+        <div className="recipe-ingredient">
+          <h3>Ingredients</h3>
+          <ul>
+            { ingredientsValues.map((ingredient, index) => (
+              <li
+                key={ ingredient }
+                data-testid={ `${index}-ingredient-name-and-measure` }
+              >
+                {ingredient}
+              </li>
+            )) }
+          </ul>
+        </div>
         <p data-testid="instructions">{ recipeDetails.strInstructions }</p>
         {
           recommendation !== undefined
@@ -144,18 +159,6 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
             </button>
           )
         }
-        <RecipeDetailsShareBtn
-          copyLinkShare={ () => copyLinkShare(setLinkCopied, history) }
-        />
-        <button
-          type="button"
-          data-testid="favorite-btn"
-          style={
-            { bottom: '0px', zIndex: '11', margin: '20px 20px 40px', padding: '6px' }
-          }
-        >
-          Favorite Recipe
-        </button>
         <RecipeDetailsVideo siteKey={ siteKey } src={ recipeDetails.strYoutube } />
       </div>
     )
