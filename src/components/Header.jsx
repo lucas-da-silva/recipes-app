@@ -15,7 +15,13 @@ function Header({ title, iconSearch, icon }) {
   return (
     <section className="header-container">
       <section className="header-nav-container">
-        <div />
+        <div className="title-nav-container">
+          <div />
+          <div className="title-nav-text-container">
+            <p className="nav-title-first">YAMMLY</p>
+            <p className="nav-title-second">recipes</p>
+          </div>
+        </div>
         <div className="icons-nav-container">
           {
             iconSearch

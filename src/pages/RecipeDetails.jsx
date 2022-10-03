@@ -85,18 +85,20 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
           data-testid="recipe-photo"
           src={ recipeDetails[typeKeysObj.img] }
           alt="Recipe"
-          style={ { width: '100%' } }
+          className="recipe-photo"
         />
-        <h1
-          data-testid="recipe-title"
-        >
-          { recipeDetails[typeKeysObj.name] }
-        </h1>
-        {
-          siteKey === 'drinks'
-            ? <h4 data-testid="recipe-category">Alcoholic</h4>
-            : <h4 data-testid="recipe-category">{ recipeDetails.strCategory }</h4>
-        }
+        <div className="header-recipe">
+          <h1
+            data-testid="recipe-title"
+          >
+            { recipeDetails[typeKeysObj.name] }
+          </h1>
+          {
+            siteKey === 'drinks'
+              ? <h4 data-testid="recipe-category">Alcoholic</h4>
+              : <h4 data-testid="recipe-category">{ recipeDetails.strCategory }</h4>
+          }
+        </div>
         <ul>
           { ingredientsValues.map((ingredient, index) => (
             <li
