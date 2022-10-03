@@ -11,8 +11,11 @@ import FavoriteBtn from '../components/FavoriteBtn';
 
 const copyLinkShare = (callback, history) => {
   const timeLimit = 2000;
+  console.log('clicou');
   callback(true);
-  copy(`http://localhost:3000${history.location.pathname}`);
+  if (history.location) {
+    copy(`http://localhost:3000${history.location.pathname}`);
+  }
   setTimeout(() => {
     callback(false);
   }, timeLimit);
@@ -143,15 +146,6 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
             </button>
           )
         }
-        {/*         <button
-          type="button"
-          data-testid="favorite-btn"
-          style={
-            { bottom: '0px', zIndex: '11', margin: '20px 20px 40px', padding: '6px' }
-          }
-          >
-          Favorite Recipe
-        </button> */}
         <FavoriteBtn
           id={ id }
           category={ recipeDetails.strCategory }
