@@ -4,17 +4,29 @@
   display: flex;
   height: 220px;
   justify-content: row;
-  margin: 30px 0;
   overflow-x: scroll;
+  overflow-y: hidden;
   width: 360px;
 }
 
+.recommendation-carousel::-webkit-scrollbar {
+  display: none;
+}
+
 .carousel-card {
-  display: flexbox;
+  border: 1px solid gray;
+  border-radius: 15px;
+  display: flex;
   flex-direction: column;
+  height: 221;
+  margin-right: 10px;
+  text-align: center;
 }
 
 .carousel-images {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   height: 180px;
   width: 180px;
 }
+
