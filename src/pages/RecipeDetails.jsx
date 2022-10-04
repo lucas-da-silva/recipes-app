@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import fetchApi from '../services/fetchApi';
 import ShareBtn from '../components/ShareBtn';
 import RecipeDetailsCarousel from '../components/RecipeDetailsCarousel';
-import RecipeDetailsShareBtn from '../components/RecipeDetailsShareBtn';
+// import RecipeDetailsShareBtn from '../components/RecipeDetailsShareBtn';
 import RecipeDetailsVideo from '../components/RecipeDetailsVideo';
 import FavoriteBtn from '../components/FavoriteBtn';
 import '../styles/RecipesDetails.css';

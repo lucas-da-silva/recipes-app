@@ -9,10 +9,11 @@ import FinishRecipeBtn from './FinishRecipeBtn';
 import FavoriteBtn from './FavoriteBtn';
 import IngredientsStep from './IngredientsStep';
 import handleStorage from '../services/handleStorage';
+import RecipeDetailsVideo from './RecipeDetailsVideo';
 
 function RecipeInProgressCard(
   { type, image, name, id, category, instructions, ingredients,
-    alcoholicOrNot, nationality, tags },
+    alcoholicOrNot, nationality, tags, video },
 ) {
   const getData = () => {
     const data = new Date();
@@ -40,29 +41,32 @@ function RecipeInProgressCard(
     }
   };
 
+  console.log(video);
+
   return (
     <section>
       <div>
         <RecipePhoto src={ image } alt={ name } />
         <RecipeCategory category={ category } />
         <RecipeTitle title={ name } />
-        <div>
-          <ShareBtn classBtn="share-btn-detail" id={ id } type={ type } />
-          <FavoriteBtn
-            id={ id }
-            classBtn="favorite-in-progress-btn"
-            category={ category }
-            name={ name }
-            alcoholicOrNot={ alcoholicOrNot }
-            nationality={ nationality }
-            image={ image }
-            type={ type }
-          />
-        </div>
+        <ShareBtn classBtn="share-btn-detail" id={ id } type={ type } />
+        <FavoriteBtn
+          id={ id }
+          classBtn="favorite-in-progress-btn"
+          category={ category }
+          name={ name }
+          alcoholicOrNot={ alcoholicOrNot }
+          nationality={ nationality }
+          image={ image }
+          type={ type }
+        />
       </div>
-      <IngredientsStep type={ type } id={ id } ingredients={ ingredients } />
-      <Instructions instructions={ instructions } />
-      <FinishRecipeBtn setDoneRecipe={ setDoneRecipe } />
+      <div className="content-in-progress-container">
+        <IngredientsStep type={ type } id={ id } ingredients={ ingredients } />
+        <Instructions instructions={ instructions } />
+        <FinishRecipeBtn setDoneRecipe={ setDoneRecipe } />
+        <RecipeDetailsVideo siteKey={ type } src={ video } />
+      </div>
     </section>
   );
 }
@@ -78,6 +82,7 @@ RecipeInProgressCard.propTypes = {
   alcoholicOrNot: PropTypes.string,
   nationality: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
+  video: PropTypes.string,
 }.isRequired;
 
 export default RecipeInProgressCard;

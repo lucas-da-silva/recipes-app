@@ -40,9 +40,9 @@ function IngredientsStep({ id, ingredients, type }) {
   };
 
   return (
-    <div>
-      <h3>Ingredients</h3>
-      <ul>
+    <div className="recipe-ingredient">
+      <h3 className="title-recipe-topic">Ingredients</h3>
+      <ul className="recipe-container ingredients-step-container">
         {
           checked.length && ingredients.map((ingredient, index) => (
             <label
@@ -54,6 +54,7 @@ function IngredientsStep({ id, ingredients, type }) {
                 type="checkbox"
                 onChange={ () => handleCheck(index) }
                 checked={ checked[index] }
+                className="checkbox-ingredient"
                 id={ `${index}-ingredient-step` }
               />
               { ingredient }
