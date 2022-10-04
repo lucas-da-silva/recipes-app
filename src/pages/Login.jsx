@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../styles/Login.css';
-import logoRecipesApp from '../images/logoRecipesApp.svg';
+// import logoRecipesApp from '../images/logoRecipesApp.svg';
 
 function Login() {
   const history = useHistory();
@@ -36,7 +36,9 @@ function Login() {
   return (
     <section className="login-container">
       <div className="login-logo-container">
-        <img className="login-logo" src={ logoRecipesApp } alt="Logo Recipe app" />
+        <p className="login-title-1">Yammly</p>
+        <p className="login-title-2">recipes</p>
+        {/* <img className="login-logo" src={ logoRecipesApp } alt="Logo Recipe app" /> */}
       </div>
       <form className="login-form" onSubmit={ handleSubmit }>
         <h2 className="login-title">Login</h2>
