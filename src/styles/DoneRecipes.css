@@ -1,0 +1,10 @@
+.filters {
+  display: flex;
+  justify-content: center;
+}
+
+.filter-food {
+  margin: 20px;
+  border: none;
+  background-color: white;
+}

@@ -56,9 +56,11 @@ function Header({ title, iconSearch, icon }) {
       </section>
       <div className="header-title-container">
         <div
+          id="icon-container"
           className={ `header-icon-container header-icon-${classIcon}-container` }
         >
           <img
+            id="icon-id"
             className={ `header-icon-${classIcon}` }
             src={ icon }
             alt={ title }

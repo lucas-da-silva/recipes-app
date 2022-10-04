@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import yellowProfileIcon from '../images/yellowProfileIcon.svg';
 
 function Profile() {
   const history = useHistory();
@@ -13,7 +14,7 @@ function Profile() {
   return (
     <div>
       <section>
-        <Header title="Profile" />
+        <Header title="Profile" icon={ yellowProfileIcon } />
         <Footer />
       </section>
       <div>

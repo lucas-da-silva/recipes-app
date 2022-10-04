@@ -3,7 +3,8 @@ import Header from '../components/Header';
 import FiltersFoods from '../components/FiltersFoods';
 import FoodsContext from '../provider/FoodsContext';
 import DoneRecipeCard from '../components/DoneRecipeCard';
-import yellowHeartIcon from '../images/yellowHeartIcon.svg';
+import iconDone from '../images/iconDone.svg';
+import '../styles/DoneRecipes.css';
 
 function DoneRecipes() {
   const { getDoneRecipes, doneRecipes, filteredDoneRecipes } = useContext(FoodsContext);
@@ -14,15 +15,23 @@ function DoneRecipes() {
 
   return (
     <section>
-      <Header title="Done Recipes" icon={ yellowHeartIcon } />
+      <Header title="Done Recipes" icon={ iconDone } />
       <FiltersFoods filterFunction={ filteredDoneRecipes } />
       {
         doneRecipes
         && (doneRecipes.length > 0 && doneRecipes.map(
           (
             {
-              id, nationality, image, category, name,
-              doneDate, alcoholicOrNot, tags, type },
+              id,
+              nationality,
+              image,
+              category,
+              name,
+              doneDate,
+              alcoholicOrNot,
+              tags,
+              type,
+            },
             index,
           ) => (
             <DoneRecipeCard
