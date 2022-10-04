@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import copy from 'clipboard-copy';
+// import copy from 'clipboard-copy';
 import fetchApi from '../services/fetchApi';
+import ShareBtn from '../components/ShareBtn';
 import RecipeDetailsCarousel from '../components/RecipeDetailsCarousel';
 import RecipeDetailsShareBtn from '../components/RecipeDetailsShareBtn';
 import RecipeDetailsVideo from '../components/RecipeDetailsVideo';
 import FavoriteBtn from '../components/FavoriteBtn';
 import '../styles/RecipesDetails.css';
-import yellowHeartIcon from '../images/yellowHeartIcon.svg';
 
-const copyLinkShare = (callback, history) => {
-  const timeLimit = 2000;
-  callback(true);
-  if (history.location) {
-    copy(`http://localhost:3000${history.location.pathname}`);
-  }
-  setTimeout(() => {
-    callback(false);
-  }, timeLimit);
-  clearTimeout();
-};
+// const copyLinkShare = (callback, history) => {
+//   const timeLimit = 2000;
+//   callback(true);
+//   if (history.location) {
+//     copy(`http://localhost:3000${history.location.pathname}`);
+//   }
+//   setTimeout(() => {
+//     callback(false);
+//   }, timeLimit);
+//   clearTimeout();
+// };
 
 function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKeys }) {
   const [recipeDetails, setRecipeDetails] = useState();
   const [recommendation, setRecommendation] = useState({ [carouselKey]: [] });
   const [ingredientsValues, setIngredientsValues] = useState([]);
-  const [linkCopiedMessage, setLinkCopied] = useState(false);
+  // const [linkCopiedMessage, setLinkCopied] = useState(false);
   const history = useHistory();
 
   const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'))
@@ -76,7 +76,7 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
     recipeDetails !== undefined
     && (
       <div>
-        {
+        {/* {
           linkCopiedMessage
             ? (
               <h4
@@ -85,7 +85,7 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
                 Link copied!
               </h4>)
             : null
-        }
+        } */}
         <img
           data-testid="recipe-photo"
           src={ recipeDetails[typeKeysObj.img] }
@@ -99,16 +99,10 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
               : <h4 data-testid="recipe-category">{ recipeDetails.strCategory }</h4>
           }
         </div>
-        <RecipeDetailsShareBtn
+        {/* <RecipeDetailsShareBtn
           copyLinkShare={ () => copyLinkShare(setLinkCopied, history) }
-        />
-        <button
-          type="button"
-          data-testid="favorite-btn"
-          className="favorite-btn-detail button-icon"
-        >
-          <img src={ yellowHeartIcon } alt="Heart Icon" />
-        </button>
+        /> */}
+        <ShareBtn classBtn="share-btn-detail" id={ id } type={ siteKey } />
         <h1
           data-testid="recipe-title"
           className="recipe-title"
@@ -116,8 +110,8 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
           { recipeDetails[typeKeysObj.name] }
         </h1>
         <div className="recipe-ingredient">
-          <h3>Ingredients</h3>
-          <ul>
+          <h3 className="title-recipe-topic">Ingredients</h3>
+          <ul className="recipe-container">
             { ingredientsValues.map((ingredient, index) => (
               <li
                 key={ ingredient }
@@ -128,12 +122,35 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
             )) }
           </ul>
         </div>
-        <p data-testid="instructions">{ recipeDetails.strInstructions }</p>
+        <div className="recipe-instructions">
+          <h3 className="title-recipe-topic">Instructions</h3>
+          <div className="recipe-container">
+            <p
+              data-testid="instructions"
+              className="recipe-instructions-text"
+            >
+              { recipeDetails.strInstructions }
+            </p>
+          </div>
+        </div>
+        <FavoriteBtn
+          id={ id }
+          category={ recipeDetails.strCategory }
+          name={ recipeDetails[typeKeysObj.name] }
+          alcoholicOrNot={ recipeDetails.strAlcoholic }
+          nationality={ recipeDetails.strArea }
+          image={ recipeDetails[typeKeysObj.img] }
+          type={ siteKey }
+        />
+        {/* <RecipeDetailsShareBtn
+          copyLinkShare={ () => copyLinkShare(setLinkCopied, history) }
+        /> */}
+        <RecipeDetailsVideo siteKey={ siteKey } src={ recipeDetails.strYoutube } />
         {
           recommendation !== undefined
             && (
-              <div>
-                <h3>
+              <div className="recipe-recommendations">
+                <h3 className="title-recipe-topic">
                   Recommendations
                 </h3>
                 <div
@@ -154,7 +171,7 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
             <button
               type="button"
               data-testid="start-recipe-btn"
-              style={ { position: 'fixed', bottom: '0px', zIndex: '20' } }
+              className="recipe-btn"
               onClick={ handleClick }
             >
               {
@@ -165,19 +182,6 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
             </button>
           )
         }
-        <FavoriteBtn
-          id={ id }
-          category={ recipeDetails.strCategory }
-          name={ recipeDetails[typeKeysObj.name] }
-          alcoholicOrNot={ recipeDetails.strAlcoholic }
-          nationality={ recipeDetails.strArea }
-          image={ recipeDetails[typeKeysObj.img] }
-          type={ siteKey }
-        />
-        <RecipeDetailsShareBtn
-          copyLinkShare={ () => copyLinkShare(setLinkCopied, history) }
-        />
-        <RecipeDetailsVideo siteKey={ siteKey } src={ recipeDetails.strYoutube } />
       </div>
     )
   );

@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 
 function RecipeCategory({ category }) {
   return (
-    <p
-      data-testid="recipe-category"
-      className="recipe-category"
-    >
-      {category}
-    </p>
+    <div className="category-recipe">
+      <h4
+        data-testid="recipe-category"
+      >
+        {category}
+      </h4>
+    </div>
   );
 }
 

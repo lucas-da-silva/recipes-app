@@ -106,5 +106,63 @@
 }
 
 .recipe-ingredient {
+  display: flex;
+  flex-direction: column;
   margin-top: 190px;
+}
+
+.title-recipe-topic {
+  color: #1a1b1c;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 12px;
+  margin-left: 23px;
+}
+
+.recipe-container {
+  align-self: center;
+  border: 0.554px solid #b1b1b1;
+  border-radius: 5.351px;
+  width: 335px;
+}
+
+.recipe-container li {
+  color: #1a1b1c;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  margin: 10px 0;
+}
+
+.recipe-instructions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.recipe-instructions-text {
+  color: #1a1b1c;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  margin: 15px;
+}
+
+.recipe-video {
+  display: flex;
+  flex-direction: column;
+  margin-top: 27px;
+}
+
+.recipe-video video {
+  align-self: center;
+  height: 205.09px;
+  width: 336px;
+}
+
+.recipe-recommendations {
+  display: flex;
+  flex-direction: column;
+  margin-top: 27px;
 }
