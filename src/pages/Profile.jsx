@@ -3,6 +3,10 @@ import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import yellowProfileIcon from '../images/yellowProfileIcon.svg';
+import iconDone from '../images/iconDone.svg';
+import yellowHeartIcon from '../images/yellowHeartIcon.svg';
+import logoutIcon from '../images/logoutIcon.svg';
+import '../styles/Profile.css';
 
 function Profile() {
   const history = useHistory();
@@ -12,36 +16,39 @@ function Profile() {
     history.push('/');
   };
   return (
-    <div>
+    <div className="page">
       <section>
         <Header title="Profile" icon={ yellowProfileIcon } />
         <Footer />
       </section>
-      <div>
-        <h2 data-testid="profile-email">
-          User :
-          {userEmail !== null ? userEmail.email : 'User'}
-        </h2>
+      <h2 data-testid="profile-email">
+        User :
+        {userEmail !== null ? userEmail.email : 'User'}
+      </h2>
+      <div className="user-links">
         <button
+          className="links"
           type="button"
           data-testid="profile-done-btn"
           onClick={ () => history.push('/done-recipes') }
         >
-          Done Recipes
+          <img src={ iconDone } alt="" />
         </button>
         <button
+          className="links"
           type="button"
           data-testid="profile-favorite-btn"
           onClick={ () => history.push('/favorite-recipes') }
         >
-          Favorite Recipes
+          <img src={ yellowHeartIcon } alt="" />
         </button>
         <button
+          className="links"
           type="button"
           data-testid="profile-logout-btn"
           onClick={ handleLogout }
         >
-          Logout
+          <img src={ logoutIcon } alt="" />
         </button>
       </div>
     </div>
