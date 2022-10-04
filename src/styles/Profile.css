@@ -1,0 +1,13 @@
+.page {
+  text-align: center;
+}
+
+.user-links {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.links {
+  background-color: white;
+  border: none;
+}
