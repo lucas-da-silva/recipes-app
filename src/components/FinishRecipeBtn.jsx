@@ -16,10 +16,9 @@ function FinishRecipeBtn({ setDoneRecipe }) {
     <button
       type="button"
       data-testid="finish-recipe-btn"
-      className="finish-recipe-btn"
+      className="recipe-btn finish-recipe-btn"
       disabled={ !finishRecipe }
       onClick={ handleClick }
-      style={ { position: 'fixed', bottom: '0px', right: '45%', left: '45%' } }
     >
       Finish Recipe
     </button>

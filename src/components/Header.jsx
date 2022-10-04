@@ -6,14 +6,22 @@ import profileIcon from '../images/profileIcon.svg';
 import SearchBar from './SearchBar';
 import '../styles/Header.css';
 
-function Header({ title, iconSearch }) {
+function Header({ title, iconSearch, icon }) {
   const history = useHistory();
   const [showInput, setShowInput] = useState(false);
+
+  const classIcon = title.toLowerCase();
 
   return (
     <section className="header-container">
       <section className="header-nav-container">
-        <div />
+        <div className="title-nav-container">
+          <div />
+          <div className="title-nav-text-container">
+            <p className="nav-title-first">YAMMLY</p>
+            <p className="nav-title-second">recipes</p>
+          </div>
+        </div>
         <div className="icons-nav-container">
           {
             iconSearch
@@ -46,7 +54,20 @@ function Header({ title, iconSearch }) {
           </button>
         </div>
       </section>
-      <h2 className="page-title" data-testid="page-title">{title}</h2>
+      <div className="header-title-container">
+        <div
+          id="icon-container"
+          className={ `header-icon-container header-icon-${classIcon}-container` }
+        >
+          <img
+            id="icon-id"
+            className={ `header-icon-${classIcon}` }
+            src={ icon }
+            alt={ title }
+          />
+        </div>
+        <h2 className="page-title" data-testid="page-title">{title}</h2>
+      </div>
       {
         showInput
         && <SearchBar />
@@ -58,6 +79,7 @@ function Header({ title, iconSearch }) {
 Header.propTypes = {
   title: PropTypes.string.isRequired,
   iconSearch: PropTypes.bool,
+  icon: PropTypes.string.isRequired,
 };
 
 Header.defaultProps = {

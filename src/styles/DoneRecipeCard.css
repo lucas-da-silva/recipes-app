@@ -1,5 +1,47 @@
 .done-recipe-img-card {
   border-radius: 5px 0 0 5px;
+  border-top-left-radius: 10px solid gray;
   height: 134.85px;
   width: 163.35px;
+}
+
+.done-recipe-card {
+  margin: 20px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 330px;
+  height: 136.85px;
+}
+
+.recipe-information {
+  text-align: left;
+  margin: 0 5px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.food-type {
+  margin: 0px;
+  line-height: 12.3px;
+  font-weight: 700;
+  font-size: 14px;
+  color: black;
+}
+
+.food-name {
+  align-self: flex-start;
+  margin: 0px;
+  line-height: 9.3px;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.recipe-date {
+  margin: 0px;
+  font-weight: 400;
+  font-size: 12px;
 }

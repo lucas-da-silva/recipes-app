@@ -5,6 +5,8 @@ import BlackHeartIcon from '../images/blackHeartIcon.svg';
 import FiltersFoods from '../components/FiltersFoods';
 import FoodsContext from '../provider/FoodsContext';
 import ShareBtn from '../components/ShareBtn';
+import yellowHeartIcon from '../images/yellowHeartIcon.svg';
+import '../styles/FavoriteRecipes.css';
 
 function FavoriteRecipes() {
   const {
@@ -29,7 +31,7 @@ function FavoriteRecipes() {
   return (
     <div>
       <section>
-        <Header title="Favorite Recipes" />
+        <Header title="Favorite Recipes" icon={ yellowHeartIcon } />
       </section>
       <FiltersFoods filterFunction={ filteredFavoriteRecipes } />
       { favoriteRecipes.map((recipe, index) => (
@@ -60,7 +62,12 @@ function FavoriteRecipes() {
               { recipe.name }
             </p>
           </button>
-          <ShareBtn type={ recipe.type } id={ recipe.id } index={ index } />
+          <ShareBtn
+            type={ recipe.type }
+            id={ recipe.id }
+            index={ index }
+            classBtn="share-btn"
+          />
           <button
             type="button"
             onClick={ () => handleClick(recipe.id) }

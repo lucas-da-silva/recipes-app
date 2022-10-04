@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ShareBtn from '../components/ShareBtn';
 import fetchApi from '../services/fetchApi';
-import '../styles/RecipesDetails.css';
+import ShareBtn from '../components/ShareBtn';
 import RecipeDetailsCarousel from '../components/RecipeDetailsCarousel';
 import RecipeDetailsVideo from '../components/RecipeDetailsVideo';
 import FavoriteBtn from '../components/FavoriteBtn';
+import '../styles/RecipesDetails.css';
 
 function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKeys }) {
   const [recipeDetails, setRecipeDetails] = useState();
@@ -65,34 +65,63 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
           data-testid="recipe-photo"
           src={ recipeDetails[typeKeysObj.img] }
           alt="Recipe"
-          style={ { width: '100%' } }
+          className="recipe-photo"
         />
+        <div className="category-recipe">
+          {
+            siteKey === 'drinks'
+              ? <h4 data-testid="recipe-category">Alcoholic</h4>
+              : <h4 data-testid="recipe-category">{ recipeDetails.strCategory }</h4>
+          }
+        </div>
+        <ShareBtn classBtn="share-btn-detail" id={ id } type={ siteKey } />
         <h1
           data-testid="recipe-title"
+          className="recipe-title"
         >
           { recipeDetails[typeKeysObj.name] }
         </h1>
-        {
-          siteKey === 'drinks'
-            ? <h4 data-testid="recipe-category">Alcoholic</h4>
-            : <h4 data-testid="recipe-category">{ recipeDetails.strCategory }</h4>
-        }
-        <ul>
-          { ingredientsValues.map((ingredient, index) => (
-            <li
-              key={ ingredient }
-              data-testid={ `${index}-ingredient-name-and-measure` }
+        <div className="recipe-ingredient">
+          <h3 className="title-recipe-topic">Ingredients</h3>
+          <ul className="recipe-container">
+            { ingredientsValues.map((ingredient, index) => (
+              <li
+                key={ ingredient }
+                data-testid={ `${index}-ingredient-name-and-measure` }
+              >
+                {ingredient}
+              </li>
+            )) }
+          </ul>
+        </div>
+        <div className="recipe-instructions">
+          <h3 className="title-recipe-topic">Instructions</h3>
+          <div className="recipe-container">
+            <p
+              data-testid="instructions"
+              className="recipe-instructions-text"
             >
-              {ingredient}
-            </li>
-          )) }
-        </ul>
-        <p data-testid="instructions">{ recipeDetails.strInstructions }</p>
+              { recipeDetails.strInstructions }
+            </p>
+          </div>
+        </div>
+        <FavoriteBtn
+          id={ id }
+          category={ recipeDetails.strCategory }
+          name={ recipeDetails[typeKeysObj.name] }
+          alcoholicOrNot={ recipeDetails.strAlcoholic }
+          nationality={ recipeDetails.strArea }
+          image={ recipeDetails[typeKeysObj.img] }
+          type={ siteKey }
+        />
+        <RecipeDetailsVideo siteKey={ siteKey } src={ recipeDetails.strYoutube } />
         {
           recommendation !== undefined
             && (
-              <div>
-                <h3>Recomendations</h3>
+              <div className="recipe-recommendations">
+                <h3 className="title-recipe-topic">
+                  Recommendations
+                </h3>
                 <div
                   className="recommendation-carousel"
                 >
@@ -111,7 +140,7 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
             <button
               type="button"
               data-testid="start-recipe-btn"
-              style={ { position: 'fixed', bottom: '0px', zIndex: '20' } }
+              className="recipe-btn"
               onClick={ handleClick }
             >
               {
@@ -122,19 +151,6 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
             </button>
           )
         }
-        <div style={ { display: 'flex', justifyContent: 'end' } }>
-          <ShareBtn id={ id } type={ siteKey } />
-          <FavoriteBtn
-            id={ id }
-            category={ recipeDetails.strCategory }
-            name={ recipeDetails[typeKeysObj.name] }
-            alcoholicOrNot={ recipeDetails.strAlcoholic }
-            nationality={ recipeDetails.strArea }
-            image={ recipeDetails[typeKeysObj.img] }
-            type={ siteKey }
-          />
-        </div>
-        <RecipeDetailsVideo siteKey={ siteKey } src={ recipeDetails.strYoutube } />
       </div>
     )
   );
@@ -145,7 +161,10 @@ RecipeDetails.propTypes = {
   siteKey: PropTypes.string.isRequired,
   carouselKey: PropTypes.string.isRequired,
   typeKeysObj: PropTypes.shape(PropTypes.string.isRequired).isRequired,
-  carouselObjKeys: PropTypes.shape(PropTypes.string.isRequired).isRequired,
+  carouselObjKeys: PropTypes.shape({
+    img: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default RecipeDetails;

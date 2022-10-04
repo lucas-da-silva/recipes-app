@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import FoodsContext from '../provider/FoodsContext';
 import RecipeInProgressCard from '../components/RecipeInProgressCard';
+import '../styles/RecipeInProgress.css';
 
 function RecipeInProgress() {
   const { id } = useParams();
@@ -31,8 +32,7 @@ function RecipeInProgress() {
     const lastIngredient = 20;
     for (let i = 1; i <= lastIngredient; i += 1) {
       if (food[`strIngredient${i}`]) {
-        // ingredients.push(`${food[`strIngredient${i}`]} - ${food[`strMeasure${i}`]}`);
-        ingredients.push(`${food[`strIngredient${i}`]}`);
+        ingredients.push(`${food[`strMeasure${i}`]} - ${food[`strIngredient${i}`]}`);
       }
     }
     return ingredients;
@@ -40,7 +40,8 @@ function RecipeInProgress() {
 
   const renderCard = () => {
     const food = inProgressRecipe[typeFood][0];
-    const { strCategory, strInstructions, strAlcoholic, strArea, strTags } = food;
+    const { strCategory, strInstructions, strAlcoholic, strArea, strTags,
+      strYoutube } = food;
     if (typeFood === 'meals') {
       const { strMealThumb, strMeal, idMeal } = food;
       return (
@@ -50,6 +51,7 @@ function RecipeInProgress() {
           id={ idMeal }
           type={ typeFood }
           tags={ strTags }
+          video={ strYoutube }
           alcoholicOrNot={ strAlcoholic }
           nationality={ strArea }
           category={ strCategory }
@@ -65,6 +67,7 @@ function RecipeInProgress() {
         name={ strDrink }
         id={ idDrink }
         tags={ strTags }
+        video={ strYoutube }
         alcoholicOrNot={ strAlcoholic }
         nationality={ strArea }
         type={ typeFood }

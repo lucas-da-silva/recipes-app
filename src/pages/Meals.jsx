@@ -4,8 +4,16 @@ import FoodsContext from '../provider/FoodsContext';
 import Footer from '../components/Footer';
 import Categories from '../components/Categories';
 import Recipes from '../components/Recipes';
+import '../styles/Foods.css';
+import cowIcon from '../images/cowIcon.svg';
+import chickenIcon from '../images/chickenIcon.svg';
+import sheepIcon from '../images/sheepIcon.svg';
+import breakfastIcon from '../images/breakfastIcon.svg';
+import shortcakeIcon from '../images/shortcakeIcon.svg';
+import mealIcon from '../images/mealIcon.svg';
 
 const MAX_LENGTH_CATEGORIES = 5;
+const iconsCategories = [cowIcon, breakfastIcon, chickenIcon, shortcakeIcon, sheepIcon];
 
 function Meals() {
   const {
@@ -42,11 +50,31 @@ function Meals() {
     checkFoods();
   }, [foods]);
 
+  const renderAllFitersBtn = () => (
+    <div className="category-img-container">
+      <img
+        src={ mealIcon }
+        alt="Meal icon"
+      />
+    </div>
+  );
+
   return (
     <section>
-      <Header title="Meals" iconSearch />
+      <Header icon={ mealIcon } title="Meals" iconSearch />
       <main className="foods-main-container">
         <div className="categories-container">
+          <button
+            className="category-btn button-icon"
+            type="button"
+            onClick={ () => getFoods(url) }
+            data-testid="All-category-filter"
+          >
+            { renderAllFitersBtn() }
+            <p>
+              All
+            </p>
+          </button>
           {
             categories && categories.meals
             && categories.meals.map(({ strCategory }, index) => {
@@ -56,6 +84,7 @@ function Meals() {
                     category={ strCategory }
                     key={ strCategory }
                     id={ strCategory }
+                    icon={ iconsCategories[index] }
                     site={ site }
                   />
                 );
@@ -63,14 +92,6 @@ function Meals() {
               return undefined;
             })
           }
-          <button
-            className="all-filters-button"
-            type="button"
-            onClick={ () => getFoods(url) }
-            data-testid="All-category-filter"
-          >
-            All
-          </button>
         </div>
         <div className="foods-main-div">
           {

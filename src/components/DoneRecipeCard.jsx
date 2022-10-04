@@ -13,7 +13,7 @@ function DoneRecipeCard(
   const auxType = type === 'meal' ? 'meals' : 'drinks';
 
   return (
-    <div>
+    <div className="done-recipe-card">
       <div>
         <button
           type="button"
@@ -28,8 +28,9 @@ function DoneRecipeCard(
           />
         </button>
       </div>
-      <div>
+      <div className="recipe-information">
         <p
+          className="food-type"
           data-testid={ `${index}-horizontal-top-text` }
         >
           {`${alcoholicOrNot.length ? alcoholicOrNot : nationality} - ${category}`}
@@ -39,10 +40,14 @@ function DoneRecipeCard(
           onClick={ () => history.push(`/${auxType}/${id}`) }
           className="button-icon"
         >
-          <p data-testid={ `${index}-horizontal-name` }>{ name }</p>
+          <p className="food-name" data-testid={ `${index}-horizontal-name` }>{ name }</p>
         </button>
-        <p data-testid={ `${index}-horizontal-done-date` }>{ doneDate }</p>
-        <ShareBtn type={ type } id={ id } index={ index } />
+        <p
+          className="recipe-date"
+          data-testid={ `${index}-horizontal-done-date` }
+        >
+          { doneDate }
+        </p>
         {
           tags.length && tags.map((tag) => (
             <p
@@ -53,6 +58,12 @@ function DoneRecipeCard(
             </p>
           ))
         }
+        <ShareBtn
+          type={ type }
+          id={ id }
+          index={ index }
+          classBtn="share-btn"
+        />
       </div>
     </div>
   );

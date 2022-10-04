@@ -63,5 +63,36 @@
 
 .login-submit-btn:disabled {
   background-color: gray;
+  color: rgb(216, 216, 216);
   cursor: auto;
+}
+
+.login-logo-container {
+  align-items: center;
+  display: flex;
+
+  /* flex-direction: column; */
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.login-title-1 {
+  color: var(--primary);
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.login-title-2 {
+  color: var(--secundary);
+  font-size: 20px;
+  font-style: bold;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.login-logo {
+  filter: drop-shadow(0.785px 13.357px 10.214px rgba(33, 18, 55, 0.2));
+  height: 157.25px;
+  width: 198px;
 }

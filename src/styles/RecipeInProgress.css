@@ -1,0 +1,25 @@
+.content-in-progress-container {
+  margin: 190px 0 70px;
+}
+
+.ingredients-step-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredients-step-container label {
+  color: #1a1b1c;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  margin: 10px 0;
+}
+
+.checkbox-ingredient {
+  margin-right: 10px;
+}
+
+.finish-recipe-btn:disabled {
+  background-color: gray;
+  color: rgb(216, 216, 216);
+}

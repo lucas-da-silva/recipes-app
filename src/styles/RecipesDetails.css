@@ -1,20 +1,51 @@
 .recommendation-carousel {
-  border: 1px solid #ccc;
   color: black;
   display: flex;
   height: 220px;
   justify-content: row;
-  margin: 30px 0;
+  margin-bottom: 20px;
+  margin-left: 7px;
   overflow-x: scroll;
+  overflow-y: hidden;
   width: 360px;
 }
 
+.recommendation-carousel::-webkit-scrollbar {
+  display: none;
+}
+
 .carousel-card {
-  display: flexbox;
+  border: 0.517px solid #b1b1b1;
+  border-radius: 5px;
+  display: flex;
   flex-direction: column;
+  height: 166.12px;
+  margin-right: 10px;
+  width: 163.2px;
 }
 
 .carousel-images {
-  height: 180px;
-  width: 180px;
+  border-radius: 5px 5px 0 0;
+  height: 135px;
+  width: 162px;
 }
+
+.recipe-btn {
+  background: #fcc436;
+  border: none;
+  border-radius: 5px;
+  bottom: 15px;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  left: 12px;
+  letter-spacing: 0.03em;
+  line-height: 14px;
+  position: fixed;
+  right: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 336px;
+}
+
