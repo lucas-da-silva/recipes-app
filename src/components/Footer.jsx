@@ -13,23 +13,25 @@ function Footer() {
     >
       <button
         type="button"
-        className="button-icon drinks-bottom-btn"
+        className="button-icon"
         onClick={ () => history.push('/drinks') }
       >
         <img
           src={ drinkIcon }
           alt="drinks"
+          className="drinks-bottom-btn"
           data-testid="drinks-bottom-btn"
         />
       </button>
       <button
         type="button"
-        className="button-icon meals-bottom-btn"
+        className="button-icon"
         onClick={ () => history.push('/meals') }
       >
         <img
           src={ mealIcon }
           alt="meals"
+          className="meals-bottom-btn"
           data-testid="meals-bottom-btn"
         />
       </button>
