@@ -4,9 +4,14 @@ import '../styles/FoodsCards.css';
 import { useHistory } from 'react-router-dom';
 import FoodsContext from '../provider/FoodsContext';
 
+const MAX_LENGTH_NAME = 20;
+
 function FoodCards({ id, name, img, index }) {
   const history = useHistory();
   const { siteKey } = useContext(FoodsContext);
+  if (name.length > MAX_LENGTH_NAME) {
+    name = `${name.slice(0, MAX_LENGTH_NAME)}...`;
+  }
   return (
     <button
       type="button"

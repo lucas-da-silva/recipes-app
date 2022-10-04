@@ -8,6 +8,7 @@ import RecipeDetailsShareBtn from '../components/RecipeDetailsShareBtn';
 import RecipeDetailsVideo from '../components/RecipeDetailsVideo';
 import FavoriteBtn from '../components/FavoriteBtn';
 import '../styles/RecipesDetails.css';
+import yellowHeartIcon from '../images/yellowHeartIcon.svg';
 
 const copyLinkShare = (callback, history) => {
   const timeLimit = 2000;
@@ -89,28 +90,44 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
           data-testid="recipe-photo"
           src={ recipeDetails[typeKeysObj.img] }
           alt="Recipe"
-          style={ { width: '100%' } }
+          className="recipe-photo"
         />
+        <div className="category-recipe">
+          {
+            siteKey === 'drinks'
+              ? <h4 data-testid="recipe-category">Alcoholic</h4>
+              : <h4 data-testid="recipe-category">{ recipeDetails.strCategory }</h4>
+          }
+        </div>
+        <RecipeDetailsShareBtn
+          copyLinkShare={ () => copyLinkShare(setLinkCopied, history) }
+        />
+        <button
+          type="button"
+          data-testid="favorite-btn"
+          className="favorite-btn-detail button-icon"
+        >
+          <img src={ yellowHeartIcon } alt="Heart Icon" />
+        </button>
         <h1
           data-testid="recipe-title"
+          className="recipe-title"
         >
           { recipeDetails[typeKeysObj.name] }
         </h1>
-        {
-          siteKey === 'drinks'
-            ? <h4 data-testid="recipe-category">Alcoholic</h4>
-            : <h4 data-testid="recipe-category">{ recipeDetails.strCategory }</h4>
-        }
-        <ul>
-          { ingredientsValues.map((ingredient, index) => (
-            <li
-              key={ ingredient }
-              data-testid={ `${index}-ingredient-name-and-measure` }
-            >
-              {ingredient}
-            </li>
-          )) }
-        </ul>
+        <div className="recipe-ingredient">
+          <h3>Ingredients</h3>
+          <ul>
+            { ingredientsValues.map((ingredient, index) => (
+              <li
+                key={ ingredient }
+                data-testid={ `${index}-ingredient-name-and-measure` }
+              >
+                {ingredient}
+              </li>
+            )) }
+          </ul>
+        </div>
         <p data-testid="instructions">{ recipeDetails.strInstructions }</p>
         {
           recommendation !== undefined

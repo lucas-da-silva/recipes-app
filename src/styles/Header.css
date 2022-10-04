@@ -6,13 +6,63 @@
   justify-content: space-between;
 }
 
+.title-nav-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.title-nav-text-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-left: 20px;
+  text-align: center;
+}
+
+.title-nav-text-container p {
+  color: var(--secundary);
+  margin: 0;
+  margin-right: 4px;
+  padding: 0;
+}
+
+.nav-title-first {
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.nav-title-second {
+  font-weight: 900;
+}
+
+.header-title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-icon-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 27px;
+}
+
+.header-icon-meals {
+  height: 29.33px;
+  width: 40.33px;
+}
+
 .page-title {
   color: var(--secundary);
   font-size: 20px;
   font-weight: 900;
   letter-spacing: 0.105em;
   line-height: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
   text-transform: uppercase;
 }
