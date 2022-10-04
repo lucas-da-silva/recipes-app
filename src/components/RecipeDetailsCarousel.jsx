@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function RecipeDetailsCarousel({ recommendation, carouselKey, carouselObjKeys }) {
   const MAX_LENGTH = 6;
   return (
-    <div>
+    <div className="recommendation-carousel">
       {
         recommendation[carouselKey]
           && (
@@ -16,16 +16,16 @@ function RecipeDetailsCarousel({ recommendation, carouselKey, carouselObjKeys })
                     data-testid={ `${index}-recommendation-card` }
                     key={ item[carouselObjKeys.name] }
                   >
-                    <h3
-                      data-testid={ `${index}-recommendation-title` }
-                    >
-                      { item[carouselObjKeys.name] }
-                    </h3>
                     <img
                       className="carousel-images"
                       src={ item[carouselObjKeys.img] }
                       alt=""
                     />
+                    <h4
+                      data-testid={ `${index}-recommendation-title` }
+                    >
+                      { item[carouselObjKeys.name] }
+                    </h4>
                   </div>
                 );
               }

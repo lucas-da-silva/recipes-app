@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import shareIcon from '../images/shareIcon.svg';
 
 function RecipeDetailsShareBtn({ copyLinkShare }) {
   return (
@@ -14,10 +15,9 @@ function RecipeDetailsShareBtn({ copyLinkShare }) {
       >
         <img
           style={ { zIndex: '12', width: '10px' } }
-          src="../images/shareIcon.svg"
+          src={ shareIcon }
           alt=""
         />
-        Share Recipe
       </button>
     </div>
   );

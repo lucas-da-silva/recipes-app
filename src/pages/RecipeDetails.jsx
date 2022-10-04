@@ -3,15 +3,14 @@ import { useParams, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import copy from 'clipboard-copy';
 import fetchApi from '../services/fetchApi';
-import '../styles/RecipesDetails.css';
 import RecipeDetailsCarousel from '../components/RecipeDetailsCarousel';
 import RecipeDetailsShareBtn from '../components/RecipeDetailsShareBtn';
 import RecipeDetailsVideo from '../components/RecipeDetailsVideo';
 import FavoriteBtn from '../components/FavoriteBtn';
+import '../styles/RecipesDetails.css';
 
 const copyLinkShare = (callback, history) => {
   const timeLimit = 2000;
-  console.log('clicou');
   callback(true);
   if (history.location) {
     copy(`http://localhost:3000${history.location.pathname}`);
@@ -19,6 +18,7 @@ const copyLinkShare = (callback, history) => {
   setTimeout(() => {
     callback(false);
   }, timeLimit);
+  clearTimeout();
 };
 
 function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKeys }) {
@@ -116,7 +116,9 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
           recommendation !== undefined
             && (
               <div>
-                <h3>Recomendations</h3>
+                <h3>
+                  Recommendations
+                </h3>
                 <div
                   className="recommendation-carousel"
                 >
