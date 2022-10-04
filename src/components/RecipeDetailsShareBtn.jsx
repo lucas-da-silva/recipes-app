@@ -4,17 +4,23 @@ import yellowShareIcon from '../images/yellowShareIcon.svg';
 
 function RecipeDetailsShareBtn({ copyLinkShare }) {
   return (
-    <button
-      type="button"
-      data-testid="share-btn"
-      onClick={ copyLinkShare }
-      className="button-icon share-btn-detail"
-    >
-      <img
-        src={ yellowShareIcon }
-        alt="Share Icon"
-      />
-    </button>
+    <div>
+      <button
+        type="button"
+        data-testid="share-btn"
+        style={
+          { bottom: '0px', zIndex: '9', margin: '20px 20px 40px', padding: '6px' }
+        }
+        className="button-icon share-btn-detail"
+        onClick={ copyLinkShare }
+      >
+        <img
+          style={ { zIndex: '12', width: '10px' } }
+          src={ yellowShareIcon }
+          alt=""
+        />
+      </button>
+    </div>
   );
 }
 

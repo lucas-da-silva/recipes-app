@@ -54,8 +54,8 @@ function FavoriteBtn(
     >
       <img
         src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
-        alt="Heart icon"
         data-testid="favorite-btn"
+        alt="Heart icon"
       />
     </button>
   );

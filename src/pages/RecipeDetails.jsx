@@ -3,19 +3,23 @@ import { useParams, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import copy from 'clipboard-copy';
 import fetchApi from '../services/fetchApi';
-import '../styles/RecipesDetails.css';
 import RecipeDetailsCarousel from '../components/RecipeDetailsCarousel';
 import RecipeDetailsShareBtn from '../components/RecipeDetailsShareBtn';
 import RecipeDetailsVideo from '../components/RecipeDetailsVideo';
+import FavoriteBtn from '../components/FavoriteBtn';
+import '../styles/RecipesDetails.css';
 import yellowHeartIcon from '../images/yellowHeartIcon.svg';
 
 const copyLinkShare = (callback, history) => {
   const timeLimit = 2000;
   callback(true);
-  copy(`http://localhost:3000${history.location.pathname}`);
+  if (history.location) {
+    copy(`http://localhost:3000${history.location.pathname}`);
+  }
   setTimeout(() => {
     callback(false);
   }, timeLimit);
+  clearTimeout();
 };
 
 function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKeys }) {
@@ -129,7 +133,9 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
           recommendation !== undefined
             && (
               <div>
-                <h3>Recomendations</h3>
+                <h3>
+                  Recommendations
+                </h3>
                 <div
                   className="recommendation-carousel"
                 >
@@ -159,6 +165,18 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
             </button>
           )
         }
+        <FavoriteBtn
+          id={ id }
+          category={ recipeDetails.strCategory }
+          name={ recipeDetails[typeKeysObj.name] }
+          alcoholicOrNot={ recipeDetails.strAlcoholic }
+          nationality={ recipeDetails.strArea }
+          image={ recipeDetails[typeKeysObj.img] }
+          type={ siteKey }
+        />
+        <RecipeDetailsShareBtn
+          copyLinkShare={ () => copyLinkShare(setLinkCopied, history) }
+        />
         <RecipeDetailsVideo siteKey={ siteKey } src={ recipeDetails.strYoutube } />
       </div>
     )
@@ -170,7 +188,10 @@ RecipeDetails.propTypes = {
   siteKey: PropTypes.string.isRequired,
   carouselKey: PropTypes.string.isRequired,
   typeKeysObj: PropTypes.shape(PropTypes.string.isRequired).isRequired,
-  carouselObjKeys: PropTypes.shape(PropTypes.string.isRequired).isRequired,
+  carouselObjKeys: PropTypes.shape({
+    img: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default RecipeDetails;
