@@ -18,3 +18,8 @@
 .checkbox-ingredient {
   margin-right: 10px;
 }
+
+.finish-recipe-btn:disabled {
+  background-color: gray;
+  color: rgb(216, 216, 216);
+}
