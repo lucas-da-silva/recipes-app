@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import FoodsContext from '../provider/FoodsContext';
 import RecipeInProgressCard from '../components/RecipeInProgressCard';
+import '../styles/RecipeInProgress.css';
 
 function RecipeInProgress() {
   const { id } = useParams();
