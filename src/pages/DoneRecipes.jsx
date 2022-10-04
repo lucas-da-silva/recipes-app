@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import Header from '../components/Header';
 import FiltersFoods from '../components/FiltersFoods';
+import Footer from '../components/Footer';
 import FoodsContext from '../provider/FoodsContext';
 import DoneRecipeCard from '../components/DoneRecipeCard';
 import iconDone from '../images/iconDone.svg';
@@ -14,11 +15,12 @@ function DoneRecipes() {
   }, []);
 
   return (
-    <section>
-      <Header title="Done Recipes" icon={ iconDone } />
-      <FiltersFoods filterFunction={ filteredDoneRecipes } />
-      {
-        doneRecipes
+    <div>
+      <section>
+        <Header title="Done Recipes" icon={ iconDone } />
+        <FiltersFoods filterFunction={ filteredDoneRecipes } />
+        {
+          doneRecipes
         && (doneRecipes.length > 0 && doneRecipes.map(
           (
             {
@@ -49,8 +51,10 @@ function DoneRecipes() {
             />
           ),
         ))
-      }
-    </section>
+        }
+      </section>
+      <Footer />
+    </div>
   );
 }
 
