@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 
 function Instructions({ instructions }) {
   return (
-    <div>
-      <h4 className="instructions-title">Instructions</h4>
-      <p
-        className="instructions"
-        data-testid="instructions"
-      >
-        { instructions }
-      </p>
+    <div className="recipe-instructions">
+      <h3 className="title-recipe-topic">Instructions</h3>
+      <div className="recipe-container">
+        <p
+          data-testid="instructions"
+          className="recipe-instructions-text"
+        >
+          { instructions }
+        </p>
+      </div>
     </div>
   );
 }
