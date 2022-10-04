@@ -47,9 +47,10 @@ function RecipeInProgressCard(
         <RecipeCategory category={ category } />
         <RecipeTitle title={ name } />
         <div>
-          <ShareBtn id={ id } type={ type } />
+          <ShareBtn classBtn="share-btn-detail" id={ id } type={ type } />
           <FavoriteBtn
             id={ id }
+            classBtn="favorite-in-progress-btn"
             category={ category }
             name={ name }
             alcoholicOrNot={ alcoholicOrNot }

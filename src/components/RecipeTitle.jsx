@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 
 function RecipeTitle({ title }) {
   return (
-    <h2 data-testid="recipe-title">{ title }</h2>
+    <h2
+      className="recipe-title"
+      data-testid="recipe-title"
+    >
+      { title }
+    </h2>
   );
 }
 

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 function RecipeDetailsVideo({ siteKey, src }) {
   return (
-    <div>
+    <div className="recipe-video">
+      <h3 className="title-recipe-topic">Video</h3>
       {
         siteKey === 'meals'
         && (
