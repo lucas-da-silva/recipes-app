@@ -25,19 +25,6 @@ function Footer() {
       <button
         type="button"
         className="button-icon"
-        onClick={ () => history.push('/drinks') }
-      >
-        <img
-          src={ getIcon('drinks') ? selectedDrinks : drinkIcon }
-          alt="drinks"
-          className="footer-icon drinks-bottom-btn"
-          data-testid="drinks-bottom-btn"
-        />
-        <p className="footer-btn-text">Drinks</p>
-      </button>
-      <button
-        type="button"
-        className="button-icon"
         onClick={ () => history.push('/meals') }
       >
         <img
@@ -47,6 +34,19 @@ function Footer() {
           data-testid="meals-bottom-btn"
         />
         <p className="footer-btn-text">Meals</p>
+      </button>
+      <button
+        type="button"
+        className="button-icon"
+        onClick={ () => history.push('/drinks') }
+      >
+        <img
+          src={ getIcon('drinks') ? selectedDrinks : drinkIcon }
+          alt="drinks"
+          className="footer-icon drinks-bottom-btn"
+          data-testid="drinks-bottom-btn"
+        />
+        <p className="footer-btn-text">Drinks</p>
       </button>
       <button
         type="button"
