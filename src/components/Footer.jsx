@@ -25,7 +25,7 @@ function Footer() {
       <button
         type="button"
         className="button-icon"
-        onClick={ () => history.push('/meals') }
+        onClick={ () => history.push('/project-recipes-app/meals') }
       >
         <img
           src={ getIcon('meals') ? selectedMeals : mealIcon }
@@ -38,7 +38,7 @@ function Footer() {
       <button
         type="button"
         className="button-icon"
-        onClick={ () => history.push('/drinks') }
+        onClick={ () => history.push('/project-recipes-app/drinks') }
       >
         <img
           src={ getIcon('drinks') ? selectedDrinks : drinkIcon }
@@ -51,7 +51,7 @@ function Footer() {
       <button
         type="button"
         className="button-icon"
-        onClick={ () => history.push('/favorite-recipes') }
+        onClick={ () => history.push('/project-recipes-app/favorite-recipes') }
       >
         <img
           className="footer-icon favorite-bottom-btn"
@@ -63,7 +63,7 @@ function Footer() {
       <button
         type="button"
         className="button-icon"
-        onClick={ () => history.push('/done-recipes') }
+        onClick={ () => history.push('/project-recipes-app/done-recipes') }
       >
         <img
           className="footer-icon done-bottom-btn"

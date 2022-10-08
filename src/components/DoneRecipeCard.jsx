@@ -44,7 +44,7 @@ function DoneRecipeCard(
         <button
           type="button"
           className="button-icon"
-          onClick={ () => history.push(`/${auxType}/${id}`) }
+          onClick={ () => history.push(`/project-recipes-app/${auxType}/${id}`) }
         >
           <img
             data-testid={ `${index}-horizontal-image` }
@@ -59,7 +59,7 @@ function DoneRecipeCard(
           <div className="name-container">
             <button
               type="button"
-              onClick={ () => history.push(`/${auxType}/${id}`) }
+              onClick={ () => history.push(`/project-recipes-app/${auxType}/${id}`) }
               className="button-icon"
             >
               { nameFood }

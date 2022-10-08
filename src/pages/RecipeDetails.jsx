@@ -54,7 +54,7 @@ function RecipeDetails({ site, siteKey, typeKeysObj, carouselKey, carouselObjKey
   }, [recipeDetails]);
 
   const handleClick = () => {
-    history.push(`${id}/in-progress`);
+    history.push(`/project-recipes-app/${id}/in-progress`);
   };
 
   return (

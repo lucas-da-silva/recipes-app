@@ -46,7 +46,7 @@ function Header({ title, iconSearch, icon }) {
           <button
             className="button-icon profile-top-btn"
             type="button"
-            onClick={ () => history.push('/profile') }
+            onClick={ () => history.push('/project-recipes-app/profile') }
           >
             <img
               className="search-icon"

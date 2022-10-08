@@ -43,7 +43,9 @@ function FavoriteRecipes() {
             <button
               type="button"
               className="button-icon"
-              onClick={ () => history.push(`/${recipe.type}s/${recipe.id}`) }
+              onClick={
+                () => history.push(`/project-recipes-app/${recipe.type}s/${recipe.id}`)
+              }
             >
               <img
                 key={ index }
@@ -58,7 +60,10 @@ function FavoriteRecipes() {
                 <button
                   type="button"
                   className="button-icon"
-                  onClick={ () => history.push(`/${recipe.type}s/${recipe.id}`) }
+                  onClick={
+                    () => history.push(`/project-recipes-app/
+                    ${recipe.type}s/${recipe.id}`)
+                  }
                 >
                   <p className="food-name" data-testid={ `${index}-horizontal-name` }>
                     { recipe.name }
