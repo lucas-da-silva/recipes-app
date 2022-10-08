@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import whiteHeartIcon from '../images/whiteHeartIcon.svg';
-import yellowHeartIcon from '../images/yellowHeartIcon.svg';
+import notLikedIcon from '../images/notLikedIcon.svg';
+import likedIcon from '../images/likedIcon.svg';
 import handleStorage from '../services/handleStorage';
 
 function FavoriteBtn(
@@ -53,7 +53,7 @@ function FavoriteBtn(
       onClick={ handleClick }
     >
       <img
-        src={ isFavorite ? yellowHeartIcon : whiteHeartIcon }
+        src={ isFavorite ? likedIcon : notLikedIcon }
         data-testid="favorite-btn"
         alt="Heart icon"
       />

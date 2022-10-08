@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import yellowShareIcon from '../images/yellowShareIcon.svg';
+import shareIcon from '../images/shareIcon.svg';
 
 function RecipeDetailsShareBtn({ copyLinkShare }) {
   return (
@@ -11,7 +11,7 @@ function RecipeDetailsShareBtn({ copyLinkShare }) {
       onClick={ copyLinkShare }
     >
       <img
-        src={ yellowShareIcon }
+        src={ shareIcon }
         alt="Share Icon"
       />
     </button>

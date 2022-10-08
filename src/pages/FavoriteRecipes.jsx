@@ -4,7 +4,8 @@ import Header from '../components/Header';
 import FiltersFoods from '../components/FiltersFoods';
 import FoodsContext from '../provider/FoodsContext';
 import ShareBtn from '../components/ShareBtn';
-import yellowHeartIcon from '../images/yellowHeartIcon.svg';
+import likedIcon from '../images/likedIcon.svg';
+import favoriteLikeIcon from '../images/favoriteLikeIcon.svg';
 import '../styles/FavoriteRecipes.css';
 import Footer from '../components/Footer';
 
@@ -30,7 +31,7 @@ function FavoriteRecipes() {
   const history = useHistory();
   return (
     <div>
-      <Header title="Favorite Recipes" icon={ yellowHeartIcon } />
+      <Header title="Favorite Recipes" icon={ favoriteLikeIcon } />
       <FiltersFoods filterFunction={ filteredFavoriteRecipes } />
       <div className="cards-cotainer">
         { favoriteRecipes.map((recipe, index) => (
@@ -80,7 +81,7 @@ function FavoriteRecipes() {
                 onClick={ () => handleClick(recipe.id) }
               >
                 <img
-                  src={ yellowHeartIcon }
+                  src={ likedIcon }
                   alt="Heart icon"
                   data-testid={ `${index}-horizontal-favorite-btn` }
                 />

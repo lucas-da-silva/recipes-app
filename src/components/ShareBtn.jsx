@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import copy from 'clipboard-copy';
-import yellowShareIcon from '../images/yellowShareIcon.svg';
+import shareIcon from '../images/shareIcon.svg';
 
 function ShareBtn({ id, index, type, classBtn }) {
   const copyLink = () => {
@@ -18,7 +18,7 @@ function ShareBtn({ id, index, type, classBtn }) {
       onClick={ copyLink }
     >
       <img
-        src={ yellowShareIcon }
+        src={ shareIcon }
         alt="Share icon"
         data-testid={ typeof index === 'number'
           ? `${index}-horizontal-share-btn` : 'share-btn' }
