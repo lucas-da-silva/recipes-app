@@ -48,6 +48,8 @@ Project developed in a group where the objective was to create a food and drink 
 
 ---
 
+> The project interface was developed in 360 x 640 resolution, for better usability, use this resolution.
+
 ## Web version: [Recipes App](https://lucas-da-silva.github.io/recipes-app/)
 
 ---

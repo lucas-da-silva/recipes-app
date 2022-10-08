@@ -22,11 +22,19 @@ function Routes() {
 
   return (
     <Switch>
-      <Route exact path="/meals/:id/in-progress" component={ RecipeInProgress } />
-      <Route exact path="/drinks/:id/in-progress" component={ RecipeInProgress } />
       <Route
         exact
-        path="/meals/:id"
+        path="/project-recipes-app/meals/:id/in-progress"
+        component={ RecipeInProgress }
+      />
+      <Route
+        exact
+        path="/project-recipes-app/drinks/:id/in-progress"
+        component={ RecipeInProgress }
+      />
+      <Route
+        exact
+        path="/project-recipes-app/meals/:id"
         render={
           (props) => (
             <RecipeDetails
@@ -41,7 +49,7 @@ function Routes() {
       />
       <Route
         exact
-        path="/drinks/:id"
+        path="/project-recipes-app/drinks/:id"
         render={
           (props) => (
             <RecipeDetails
@@ -54,12 +62,12 @@ function Routes() {
             />)
         }
       />
-      <Route exact path="/favorite-recipes" component={ FavoriteRecipes } />
-      <Route exact path="/done-recipes" component={ DoneRecipes } />
-      <Route exact path="/drinks" component={ Drinks } />
-      <Route exact path="/profile" component={ Profile } />
-      <Route exact path="/meals" component={ Meals } />
-      <Route exact path="/" component={ Login } />
+      <Route exact path="/project-recipes-app/favorite" component={ FavoriteRecipes } />
+      <Route exact path="/project-recipes-app/done-recipes" component={ DoneRecipes } />
+      <Route exact path="/project-recipes-app/drinks" component={ Drinks } />
+      <Route exact path="/project-recipes-app/profile" component={ Profile } />
+      <Route exact path="/project-recipes-app/meals" component={ Meals } />
+      <Route exact path="/project-recipes-app" component={ Login } />
     </Switch>
   );
 }
