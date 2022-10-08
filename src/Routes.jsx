@@ -62,7 +62,11 @@ function Routes() {
             />)
         }
       />
-      <Route exact path="/project-recipes-app/favorite" component={ FavoriteRecipes } />
+      <Route
+        exact
+        path="/project-recipes-app/favorite-recipes"
+        component={ FavoriteRecipes }
+      />
       <Route exact path="/project-recipes-app/done-recipes" component={ DoneRecipes } />
       <Route exact path="/project-recipes-app/drinks" component={ Drinks } />
       <Route exact path="/project-recipes-app/profile" component={ Profile } />
