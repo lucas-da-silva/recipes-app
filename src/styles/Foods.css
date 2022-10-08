@@ -58,7 +58,7 @@
 }
 
 .category-recipe {
-  color: #fcc436;
+  color: var(--primary);
   font-size: 12px;
   font-weight: 700;
   left: 17.01px;

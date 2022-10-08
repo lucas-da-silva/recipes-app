@@ -6,15 +6,36 @@
   width: 100vw;
 }
 
+.login-title {
+  align-items: center;
+  background-color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.login-logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.login-logo {
+  height: 60px;
+  width: 60px;
+}
+
 .login-form {
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  height: 50vh;
 }
 
-.login-title {
-  color: var(--secundary);
+.login-form-title {
+  color: var(--primary);
   font-size: 20px;
   font-style: italic;
   font-weight: 500;
@@ -32,8 +53,8 @@
 }
 
 .email-input, .password-input {
-  border: 0.5px solid var(--secundary);
-  color: var(--secundary);
+  border: 0.5px solid var(--primary);
+  color: var(--primary);
   font-size: 14px;
   font-weight: 300;
   line-height: 14px;
@@ -41,16 +62,16 @@
 }
 
 .email-input:focus, .password-input:focus {
-  color: var(--secundary);
-  outline-color: var(--secundary);
+  color: var(--primary);
+  outline-color: var(--primary);
 }
 
 .email-input::placeholder, .password-input::placeholder {
-  color: var(--secundary);
+  color: var(--primary);
 }
 
 .login-submit-btn {
-  background-color: var(--primary);
+  background-color: var(--secundary);
   border: none;
   color: white;
   cursor: pointer;
@@ -62,22 +83,19 @@
 }
 
 .login-submit-btn:disabled {
-  background-color: gray;
+  background-color: rgb(191, 191, 191);
   color: rgb(216, 216, 216);
   cursor: auto;
 }
 
-.login-logo-container {
+.login-title-container {
   align-items: center;
   display: flex;
-
-  /* flex-direction: column; */
   justify-content: center;
-  margin-bottom: 20px;
 }
 
 .login-title-1 {
-  color: var(--primary);
+  color: var(--secundary);
   font-size: 30px;
   font-style: italic;
   font-weight: 700;
@@ -91,8 +109,3 @@
   margin-left: 5px;
 }
 
-.login-logo {
-  filter: drop-shadow(0.785px 13.357px 10.214px rgba(33, 18, 55, 0.2));
-  height: 157.25px;
-  width: 198px;
-}

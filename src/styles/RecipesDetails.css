@@ -31,7 +31,7 @@
 }
 
 .recipe-btn {
-  background: #fcc436;
+  background: var(--primary);
   border: none;
   border-radius: 5px;
   bottom: 15px;
