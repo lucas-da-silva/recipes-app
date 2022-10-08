@@ -7,6 +7,7 @@ import fetchApi from '../services/fetchApi';
 function FoodsProvider({ children }) {
   const history = useHistory();
   const [foods, setFoods] = useState({});
+  const [page, setPage] = useState('meals');
   const [site, setSite] = useState('');
   const [siteKey, setSiteKey] = useState('');
   const [categories, setCategories] = useState();
@@ -98,6 +99,8 @@ function FoodsProvider({ children }) {
     getFavoriteRecipes,
     favoriteRecipes,
     filteredFavoriteRecipes,
+    page,
+    setPage,
   };
 
   return (

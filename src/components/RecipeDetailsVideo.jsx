@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function RecipeDetailsVideo({ siteKey, src }) {
-  return (
-    <div className="recipe-video">
-      <h3 className="title-recipe-topic">Video</h3>
-      {
-        siteKey === 'meals'
+  return src
+    ? (
+      <div className="recipe-video">
+        <h3 className="title-recipe-topic">Video</h3>
+        {
+          siteKey === 'meals'
         && (
           <iframe
             className="video"
@@ -19,9 +20,9 @@ function RecipeDetailsVideo({ siteKey, src }) {
             allowFullScreen
           />
         )
-      }
-    </div>
-  );
+        }
+      </div>
+    ) : null;
 }
 
 RecipeDetailsVideo.propTypes = {
