@@ -24,6 +24,7 @@ function Meals() {
     getFoods,
     getCategories,
     categories,
+    setPage,
   } = useContext(FoodsContext);
 
   const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
@@ -39,6 +40,7 @@ function Meals() {
     setSiteKey('meals');
     getFoods(url);
     getCategories(api);
+    setPage('meals');
   }, []);
 
   useEffect(() => {

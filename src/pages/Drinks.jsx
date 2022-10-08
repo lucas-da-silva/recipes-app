@@ -23,6 +23,7 @@ function Drinks() {
     getFoods,
     getCategories,
     categories,
+    setPage,
   } = useContext(FoodsContext);
 
   const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
@@ -38,6 +39,7 @@ function Drinks() {
     setSiteKey('drinks');
     getFoods(url);
     getCategories(api);
+    setPage('drinks');
   }, []);
 
   useEffect(() => {

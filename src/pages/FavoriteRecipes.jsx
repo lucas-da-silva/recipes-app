@@ -15,10 +15,14 @@ function FavoriteRecipes() {
     favoriteRecipes,
     getFavoriteRecipes,
     setFavoriteRecipes,
+    setPage,
   } = useContext(FoodsContext);
+
   useEffect(() => {
     getFavoriteRecipes();
+    setPage('favorites');
   }, []);
+
   const handleClick = (id) => {
     const favoriteRecipesStorage = JSON.parse(localStorage.getItem('favoriteRecipes'));
     const newFavoriteRecipe = favoriteRecipesStorage.filter(

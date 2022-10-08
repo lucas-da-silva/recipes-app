@@ -8,10 +8,12 @@ import iconDone from '../images/iconDone.svg';
 import '../styles/DoneRecipes.css';
 
 function DoneRecipes() {
-  const { getDoneRecipes, doneRecipes, filteredDoneRecipes } = useContext(FoodsContext);
+  const { getDoneRecipes,
+    doneRecipes, filteredDoneRecipes, setPage } = useContext(FoodsContext);
 
   useEffect(() => {
     getDoneRecipes();
+    setPage('done');
   }, []);
 
   return (

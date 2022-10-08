@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import FoodsContext from '../provider/FoodsContext';
 import mealIcon from '../images/mealIcon.svg';
 import drinkIcon from '../images/drinkIcon.svg';
 import '../styles/Footer.css';
 import likedIcon from '../images/likedIcon.svg';
+import selectedDrinks from '../images/selectedDrinks.svg';
+import selectedMeals from '../images/selectedMeals.svg';
+import selectedDone from '../images/selectedDone.svg';
+import selectedFavorites from '../images/selectedFavorites.svg';
 import profileDoneIcon from '../images/profileDoneIcon.svg';
 
 function Footer() {
   const history = useHistory();
+  const { page } = useContext(FoodsContext);
+
+  const getIcon = (icon) => (icon === page);
+
   return (
     <div
       className="footer-container"
@@ -19,7 +28,7 @@ function Footer() {
         onClick={ () => history.push('/drinks') }
       >
         <img
-          src={ drinkIcon }
+          src={ getIcon('drinks') ? selectedDrinks : drinkIcon }
           alt="drinks"
           className="footer-icon drinks-bottom-btn"
           data-testid="drinks-bottom-btn"
@@ -32,7 +41,7 @@ function Footer() {
         onClick={ () => history.push('/meals') }
       >
         <img
-          src={ mealIcon }
+          src={ getIcon('meals') ? selectedMeals : mealIcon }
           alt="meals"
           className="footer-icon meals-bottom-btn"
           data-testid="meals-bottom-btn"
@@ -46,7 +55,7 @@ function Footer() {
       >
         <img
           className="footer-icon favorite-bottom-btn"
-          src={ likedIcon }
+          src={ getIcon('favorites') ? selectedFavorites : likedIcon }
           alt="Favorites foods"
         />
         <p className="footer-btn-text">Favorites</p>
@@ -58,7 +67,7 @@ function Footer() {
       >
         <img
           className="footer-icon done-bottom-btn"
-          src={ profileDoneIcon }
+          src={ getIcon('done') ? selectedDone : profileDoneIcon }
           alt="Done recipes"
         />
         <p className="footer-btn-text">Done</p>
