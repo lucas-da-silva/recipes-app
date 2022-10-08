@@ -13,7 +13,7 @@
 
 .category-img-container {
   align-items: center;
-  border: 1.811px solid #fcc436;
+  border: 1.811px solid var(--primary);
   border-radius: 45.28px;
   display: flex;
   height: 45.28px;
