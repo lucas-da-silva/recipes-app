@@ -5,6 +5,7 @@ import searchIcon from '../images/searchIcon.svg';
 import profileIcon from '../images/profileIcon.svg';
 import SearchBar from './SearchBar';
 import '../styles/Header.css';
+import iconRecipe from '../images/iconRecipe.png';
 
 function Header({ title, iconSearch, icon }) {
   const history = useHistory();
@@ -16,7 +17,9 @@ function Header({ title, iconSearch, icon }) {
     <section className="header-container">
       <section className="header-nav-container">
         <div className="title-nav-container">
-          <div />
+          <div>
+            <img className="header-icon-recipe" src={ iconRecipe } alt="icon recipe" />
+          </div>
           <div className="title-nav-text-container">
             <p className="nav-title-first">YAMMLY</p>
             <p className="nav-title-second">recipes</p>
