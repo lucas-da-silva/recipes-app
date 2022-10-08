@@ -19,8 +19,9 @@ function DoneRecipes() {
       <section>
         <Header title="Done Recipes" icon={ iconDone } />
         <FiltersFoods filterFunction={ filteredDoneRecipes } />
-        {
-          doneRecipes
+        <div className="cards-cotainer">
+          {
+            doneRecipes
         && (doneRecipes.length > 0 && doneRecipes.map(
           (
             {
@@ -51,7 +52,8 @@ function DoneRecipes() {
             />
           ),
         ))
-        }
+          }
+        </div>
       </section>
       <Footer />
     </div>

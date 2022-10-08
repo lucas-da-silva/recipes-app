@@ -13,16 +13,17 @@ function RecipeDetailsCarousel({ recommendation, carouselKey, carouselObjKeys })
               data-testid={ `${index}-recommendation-card` }
               key={ item[carouselObjKeys.name] }
             >
-              <h3
-                data-testid={ `${index}-recommendation-title` }
-              >
-                { item[carouselObjKeys.name] }
-              </h3>
               <img
                 className="carousel-images"
                 src={ item[carouselObjKeys.img] }
                 alt=""
               />
+              <p
+                data-testid={ `${index}-recommendation-title` }
+                className="recommendation-title"
+              >
+                { item[carouselObjKeys.name] }
+              </p>
             </div>
           );
         }

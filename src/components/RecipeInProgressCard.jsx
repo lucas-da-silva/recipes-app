@@ -41,8 +41,6 @@ function RecipeInProgressCard(
     }
   };
 
-  console.log(video);
-
   return (
     <section>
       <div>

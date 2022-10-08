@@ -8,3 +8,10 @@
   border: none;
   margin: 20px;
 }
+
+.cards-cotainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 50px;
+}

@@ -1,0 +1,17 @@
+.favorites-card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.favorites-information-container {
+  margin-left: 20px;
+}
+
+.favorites-name-container {
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.favorite-btn {
+  margin-left: 10px;
+}

@@ -8,15 +8,16 @@ function RecipeDetailsVideo({ siteKey, src }) {
       {
         siteKey === 'meals'
         && (
-          <video
+          <iframe
+            className="video"
             data-testid="video"
-            width="360"
-            height="200"
-            controls
-            src={ src }
-          >
-            <track kind="captions" />
-          </video>
+            src={ src.replace('watch?v=', 'embed/') }
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer;
+          autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         )
       }
     </div>
