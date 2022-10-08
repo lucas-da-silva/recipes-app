@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import yellowProfileIcon from '../images/yellowProfileIcon.svg';
-import iconDone from '../images/iconDone.svg';
-import yellowHeartIcon from '../images/yellowHeartIcon.svg';
+import profileDoneIcon from '../images/profileDoneIcon.svg';
+import profileHeartIcon from '../images/profileHeartIcon.svg';
 import logoutIcon from '../images/logoutIcon.svg';
 import '../styles/Profile.css';
 
@@ -21,34 +21,38 @@ function Profile() {
         <Header title="Profile" icon={ yellowProfileIcon } />
         <Footer />
       </section>
-      <h2 data-testid="profile-email">
-        User :
+      <h3 className="profile-email" data-testid="profile-email">
         {userEmail !== null ? userEmail.email : 'User'}
-      </h2>
+      </h3>
       <div className="user-links">
         <button
-          className="links"
+          className="links button-icon"
           type="button"
           data-testid="profile-done-btn"
           onClick={ () => history.push('/done-recipes') }
         >
-          <img src={ iconDone } alt="" />
+          <img src={ profileDoneIcon } alt="Done recipes icon" />
+          <p>Done Recipes</p>
         </button>
+        <hr className="profile-hr" />
         <button
-          className="links"
+          className="links button-icon"
           type="button"
           data-testid="profile-favorite-btn"
           onClick={ () => history.push('/favorite-recipes') }
         >
-          <img src={ yellowHeartIcon } alt="" />
+          <img src={ profileHeartIcon } alt="Favorite recipes icon" />
+          <p>Favorite Recipes</p>
         </button>
+        <hr className="profile-hr" />
         <button
-          className="links"
+          className="links button-icon"
           type="button"
           data-testid="profile-logout-btn"
           onClick={ handleLogout }
         >
-          <img src={ logoutIcon } alt="" />
+          <img src={ logoutIcon } alt="Logout icon" />
+          <p>Logout</p>
         </button>
       </div>
     </div>

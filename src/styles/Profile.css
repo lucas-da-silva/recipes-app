@@ -1,13 +1,41 @@
-.page {
+.user-links {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-email {
+  color: #1a1b1c;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+  margin: 27px 0 50px;
   text-align: center;
 }
 
-.user-links {
+.links {
+  align-self: center;
   display: flex;
-  justify-content: space-evenly;
 }
 
-.links {
-  background-color: white;
-  border: none;
+.links p {
+  align-items: center;
+  color: #797d86;
+  display: flex;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 16px;
+  margin-left: 25px;
+  margin-top: 12px;
+  text-transform: capitalize;
+  width: 180px;
+}
+
+.profile-hr {
+  align-self: center;
+  height: 0;
+  margin: 15px 0;
+  width: 290px;
 }
