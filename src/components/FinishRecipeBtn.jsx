@@ -9,7 +9,7 @@ function FinishRecipeBtn({ setDoneRecipe }) {
 
   const handleClick = () => {
     setDoneRecipe();
-    history.push('/project-recipes-app/done-recipes');
+    history.push('/recipes-app/done-recipes');
   };
 
   return (

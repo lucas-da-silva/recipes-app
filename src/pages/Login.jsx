@@ -30,7 +30,7 @@ function Login() {
     localStorage.setItem('user', JSON.stringify({ email: login.email }));
     localStorage.setItem('mealsToken', 1);
     localStorage.setItem('drinksToken', 1);
-    history.push('/project-recipes-app/meals');
+    history.push('/recipes-app/meals');
   };
 
   return (

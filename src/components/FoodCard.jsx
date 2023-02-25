@@ -18,7 +18,7 @@ function FoodCards({ id, name, img, index }) {
       className="card-container"
       key={ id }
       data-testid={ `${index}-recipe-card` }
-      onClick={ () => history.push(`/project-recipes-app/${siteKey}/${id}`) }
+      onClick={ () => history.push(`/recipes-app/${siteKey}/${id}`) }
     >
       <img
         data-testid={ `${index}-card-img` }

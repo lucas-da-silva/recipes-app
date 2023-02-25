@@ -50,7 +50,7 @@ Project developed in a group where the objective was to create a food and drink 
 
 > The project interface was developed in 360 x 640 resolution, for better usability, use this resolution.
 
-## Web version: [Recipes App](https://lucas-da-silva.github.io/project-recipes-app/)
+## Web version: [Recipes App](https://lucas-da-silva.github.io/recipes-app/)
 
 ---
 
@@ -59,13 +59,13 @@ Project developed in a group where the objective was to create a food and drink 
 1. In the terminal, in a directory of your choice, clone the repository:
 
 ```
-git clone git@github.com:lucas-da-silva/project-recipes-app.git
+git clone git@github.com:lucas-da-silva/recipes-app.git
 ```
 
 2. Enter project folder:
 
 ```
-cd project-recipes-app
+cd recipes-app
 ```
 
 3. Inside the project repository, install the dependencies:

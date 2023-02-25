@@ -44,7 +44,7 @@ function FavoriteRecipes() {
               type="button"
               className="button-icon"
               onClick={
-                () => history.push(`/project-recipes-app/${recipe.type}s/${recipe.id}`)
+                () => history.push(`/recipes-app/${recipe.type}s/${recipe.id}`)
               }
             >
               <img
@@ -61,7 +61,7 @@ function FavoriteRecipes() {
                   type="button"
                   className="button-icon"
                   onClick={
-                    () => history.push(`/project-recipes-app/
+                    () => history.push(`/recipes-app/
                     ${recipe.type}s/${recipe.id}`)
                   }
                 >
